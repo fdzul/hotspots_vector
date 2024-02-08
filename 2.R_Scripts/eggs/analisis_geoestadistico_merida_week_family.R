@@ -24,3 +24,4 @@ x <- deneggs::spde_pred_map(path_lect = path_ovitraps,
 
 names(x)
 x$dics
+x$map

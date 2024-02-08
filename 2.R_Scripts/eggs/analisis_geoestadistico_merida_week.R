@@ -21,3 +21,4 @@ x <- deneggs::eggs_hotspots(path_lect = path_ovitraps,
                             var = "eggs",
                             cell_size = 2000,
                             alpha = .99)
+

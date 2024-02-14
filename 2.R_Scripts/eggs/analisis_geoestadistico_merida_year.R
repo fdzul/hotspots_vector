@@ -4,7 +4,7 @@ path_coord <- paste(path_ovitraps, "DescargaOvitrampasMesFco.txt", sep = "/")
 
 library(INLA)
 library(sf)
-# Step 2INLA# Step 2. run the spde model merida ####
+# # Step 2. run the spde model merida ####
 guadalajara <- deneggs::eggs_hotspots_week(cve_mpo = "039",
                                            cve_edo = "14",
                                            year = "2023",

@@ -1,5 +1,5 @@
 # Step 1. define the path ####
-path_ovitraps <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2024/31_yucatan"
+path_ovitraps <- "/Users/fdzul/Dropbox/CENAPRECE/2024/31_yucatan"
 path_coordinates <- paste(path_ovitraps, "DescargaOvitrampasMesFco.txt", sep = "/")
 
 # Step 2. run the function #### 
@@ -23,5 +23,6 @@ x <- deneggs::spde_pred_map(path_lect = path_ovitraps,
                             leg_title = "Huevos")
 
 names(x)
-x$dics
+x$dics |>
+    dplyr::arrange(dic)
 x$map

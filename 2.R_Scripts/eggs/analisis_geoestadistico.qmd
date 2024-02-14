@@ -25,43 +25,14 @@ library(INLA)
 ## Yucatán
 
 ::: panel-tabset
-### code
 
-```{r, warning=FALSE, message=FALSE, error=FALSE}
+### Función eggs_hotspots
+
+```{r merida_eggs_hotspots, warning=FALSE, message=FALSE, error=FALSE}
 #| echo: true
-#| output: false
-# Step 1. define the path ####
-path_ovitraps <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2024/31_yucatan"
-path_coordinates <- paste(path_ovitraps, "DescargaOvitrampasMesFco.txt", sep = "/")
-
-# Step 2. run the function #### 
-x <- deneggs::eggs_hotspots(path_lect = path_ovitraps,
-                            path_coord = path_coordinates,
-                            cve_ent = "31",
-                            locality  = "Mérida",
-                            longitude  = "Pocision_X",
-                            latitude =  "Pocision_Y",
-                            aproximation = "gaussian",
-                            integration = "eb",
-                            fam = "zeroinflatednbinomial1",
-                            k = 30,
-                            palette_vir  = "magma",
-                            leg_title = "Huevos",
-                            plot = FALSE,
-                            hist_dataset = FALSE,
-                            sem = 4,
-                            var = "eggs",
-                            cell_size = 2000,
-                            alpha = .99)
-```
-
-### map
-
-```{r, warning=FALSE, message=FALSE, error=FALSE}
-#| echo: false
 #| output: true
 # Step 1. define the path ####
-path_ovitraps <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2024/31_yucatan"
+path_ovitraps <- "/Users/fdzul/Dropbox/CENAPRECE/2024/31_yucatan"
 path_coordinates <- paste(path_ovitraps, "DescargaOvitrampasMesFco.txt", sep = "/")
 
 # Step 2. run the function #### 
@@ -83,52 +54,77 @@ x <- deneggs::eggs_hotspots(path_lect = path_ovitraps,
                             var = "eggs",
                             cell_size = 2000,
                             alpha = .99)
-x$map
+```
+
+### Función spde_pred_map
+
+```{r merida_spde_pred_map, warning=FALSE, message=FALSE, error=FALSE}
+#| echo: true
+#| output: true
+# Step 1. define the path ####
+path_ovitraps <- "/Users/fdzul/Dropbox/CENAPRECE/2024/31_yucatan"
+path_coordinates <- paste(path_ovitraps, "DescargaOvitrampasMesFco.txt", sep = "/")
+
+# Step 2. run the function #### 
+
+x <- deneggs::spde_pred_map(path_lect = path_ovitraps,
+                            path_coord = path_coordinates,
+                            cve_ent = "31",
+                            locality = "Merida",
+                            longitude  = "Pocision_X",
+                            latitude =  "Pocision_Y",
+                            aproximation = "gaussian",
+                            integration = "eb",
+                            k = 30,
+                            plot = FALSE,
+                            week = 4,
+                            var = "Huevecillos",
+                            cell_size = 2000,
+                            alpha = .99,
+                            palette_vir  = "magma",
+                            leg_title = "Huevos")
+```
+
+### Función eggs_hotspots_week
+```{r merida_eggs_hotspots_week, warning=FALSE, message=FALSE, error=FALSE}
+# Step 1. define the path ####
+path_ovitraps <- "/Users/fdzul/Dropbox/CENAPRECE/2024/31_yucatan"
+path_coordinates <- paste(path_ovitraps, "DescargaOvitrampasMesFco.txt", sep = "/")
+# # Step 2. run the spde model merida ####
+guadalajara <- deneggs::eggs_hotspots_week(path_vect = path_ovitraps,
+                                           path_coord = path_coord,
+                                           cve_mpo = "050",
+                                           cve_edo = "31",
+                                           locality  = "Mérida",
+                                           year = "2024",
+                                           hist_dataset = FALSE,
+                                           integration_strategy = "eb",
+                                           aproximation_method = "gaussian",
+                                           fam_distribution = "zeroinflatednbinomial1",
+                                           kvalue = 20,
+                                           plot = FALSE,
+                                           palette.viridis = "viridis",
+                                           cell.size = 5000,
+                                           alpha.value = .99)
 
 ```
-:::
 
-## Jalisco
+::: 
+
+
+
+
+## Guadalajara
 
 ::: panel-tabset
-### code
 
-```{r, warning=FALSE, message=FALSE, error=FALSE}
+### Función eggs_hotspots
+
+```{r guadalajara_eggs_hotspots, warning=FALSE, message=FALSE, error=FALSE}
 #| echo: true
-#| output: false
-# Step 1. define the path ####
-path_ovitraps <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2024/14_jalisco"
-path_coordinates <- paste(path_ovitraps, "DescargaOvitrampasMesFco.txt", sep = "/")
-
-# Step 2. run the function #### 
-x <- deneggs::eggs_hotspots(path_lect = path_ovitraps,
-                            path_coord = path_coordinates,
-                            cve_ent = "14",
-                            locality  = c("Guadalajara", "Zapopan",
-                                          "Tlaquepaque", "Tonalá"),
-                            longitude  = "Pocision_X",
-                            latitude =  "Pocision_Y",
-                            aproximation = "gaussian",
-                            integration = "eb",
-                            fam = "zeroinflatednbinomial1",
-                            k = 30,
-                            palette_vir  = "magma",
-                            leg_title = "Huevos",
-                            plot = FALSE,
-                            hist_dataset = FALSE,
-                            sem = 4,
-                            var = "eggs",
-                            cell_size = 2000,
-                            alpha = .99)
-```
-
-### map
-
-```{r, warning=FALSE, message=FALSE, error=FALSE}
-#| echo: false
 #| output: true
 # Step 1. define the path ####
-path_ovitraps <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2024/14_jalisco"
+path_ovitraps <- "/Users/fdzul/Dropbox/CENAPRECE/2024/14_jalisco"
 path_coordinates <- paste(path_ovitraps, "DescargaOvitrampasMesFco.txt", sep = "/")
 
 # Step 2. run the function #### 
@@ -136,7 +132,7 @@ x <- deneggs::eggs_hotspots(path_lect = path_ovitraps,
                             path_coord = path_coordinates,
                             cve_ent = "14",
                             locality  = c("Guadalajara", "Zapopan",
-                                          "Tlaquepaque", "Tonalá"),
+                                          "Tlaquepaque", "Tonala"),
                             longitude  = "Pocision_X",
                             latitude =  "Pocision_Y",
                             aproximation = "gaussian",
@@ -151,7 +147,62 @@ x <- deneggs::eggs_hotspots(path_lect = path_ovitraps,
                             var = "eggs",
                             cell_size = 2000,
                             alpha = .99)
-x$map
+```
+
+### Función spde_pred_map
+
+```{r guadalajara_spde_pred_map, warning=FALSE, message=FALSE, error=FALSE}
+#| echo: true
+#| output: true
+# Step 1. define the path ####
+path_ovitraps <- "/Users/fdzul/Dropbox/CENAPRECE/2024/14_jalisco"
+path_coordinates <- paste(path_ovitraps, "DescargaOvitrampasMesFco.txt", sep = "/")
+
+# Step 2. run the function #### 
+
+x <- deneggs::spde_pred_map(path_lect = path_ovitraps,
+                            path_coord = path_coordinates,
+                            cve_ent = "14",
+                            locality  = c("Guadalajara", "Zapopan",
+                                          "Tlaquepaque", "Tonala"),
+                            longitude  = "Pocision_X",
+                            latitude =  "Pocision_Y",
+                            aproximation = "gaussian",
+                            integration = "eb",
+                            k = 30,
+                            plot = FALSE,
+                            week = 4,
+                            var = "Huevecillos",
+                            cell_size = 2000,
+                            alpha = .99,
+                            palette_vir  = "magma",
+                            leg_title = "Huevos")
+```
+
+### Función eggs_hotspots_week
+```{r guadalajara_eggs_hotspots_week, warning=FALSE, message=FALSE, error=FALSE}
+# Step 1. define the path ####
+path_ovitraps <- "/Users/fdzul/Dropbox/CENAPRECE/2024/14_jalisco"
+path_coordinates <- paste(path_ovitraps, "DescargaOvitrampasMesFco.txt", sep = "/")
+# # Step 2. run the spde model ####
+guadalajara <- deneggs::eggs_hotspots_week(path_vect = path_ovitraps,
+                                           path_coord = path_coord,
+                                           cve_mpo = "039",
+                                           cve_edo = "14",
+                                           locality  = c("Guadalajara", "Zapopan",
+                                                         "Tlaquepaque", "Tonala"),
+                                           year = "2024",
+                                           hist_dataset = FALSE,
+                                           integration_strategy = "eb",
+                                           aproximation_method = "gaussian",
+                                           fam_distribution = "zeroinflatednbinomial1",
+                                           kvalue = 20,
+                                           plot = FALSE,
+                                           palette.viridis = "viridis",
+                                           cell.size = 5000,
+                                           alpha.value = .99)
 
 ```
-:::
+
+
+::: 
